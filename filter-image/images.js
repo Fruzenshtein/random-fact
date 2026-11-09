@@ -15,5 +15,9 @@ window.IMAGES = [
   "images/img_014.png",
   "images/img_015.png",
   "images/img_016.png",
-  "images/img_017.png"
+  "images/img_017.png",
+  "images/img_018.png",
+  "images/img_019.png",
+  "images/img_020.png",
+  "images/img_021.png"
 ];
