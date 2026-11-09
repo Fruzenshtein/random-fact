@@ -32,6 +32,11 @@ python3 -m http.server 8000
 
 і перейди на <http://localhost:8000>.
 
+## Інші застосунки
+
+- [`filter-image/`](filter-image/README.md) — гра «вгадай зображення»: пікселізоване фото
+  поступово стає чіткішим.
+
 ## Публікація на GitHub Pages
 
 1. Запуш код у гілку `main` на GitHub.

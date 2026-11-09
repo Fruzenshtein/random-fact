@@ -1,0 +1,251 @@
+:root {
+  --bg: #0b1120;
+  --bg-glow: #1e2a4a;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.12);
+  --border: rgba(255, 255, 255, 0.14);
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --dot: rgba(255, 255, 255, 0.18);
+  --dot-on: #38bdf8;
+  --gutter: 24px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(70% 60% at 50% 40%, var(--bg-glow) 0%, var(--bg) 70%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 16px var(--gutter);
+  height: 100vh;
+  height: 100dvh;
+  padding: var(--gutter);
+}
+
+.stage {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.picture {
+  display: block;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.status[hidden] {
+  display: none;
+}
+
+.arrow {
+  grid-row: 1;
+  align-self: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 160ms ease, transform 120ms ease, opacity 160ms ease;
+}
+
+.arrow-prev {
+  grid-column: 1;
+}
+
+.arrow-next {
+  grid-column: 3;
+}
+
+.arrow svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.arrow:hover:not(:disabled) {
+  background: var(--surface-strong);
+}
+
+.arrow:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.controls {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+}
+
+.steps {
+  display: flex;
+  gap: 10px;
+}
+
+.step {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--dot);
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.step.is-on {
+  background: var(--dot-on);
+  transform: scale(1.1);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn {
+  min-width: 160px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 160ms ease, transform 120ms ease, opacity 160ms ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--surface-strong);
+}
+
+.btn-primary {
+  border-color: transparent;
+  background: var(--accent);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.arrow:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.btn:focus-visible,
+.arrow:focus-visible {
+  outline: 3px solid var(--dot-on);
+  outline-offset: 3px;
+}
+
+.counter {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --gutter: 16px;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+  }
+
+  .stage {
+    grid-column: 1;
+  }
+
+  .arrow {
+    grid-row: 2;
+    width: 52px;
+    height: 52px;
+  }
+
+  .arrow-prev {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .arrow-next {
+    grid-column: 1;
+    justify-self: end;
+  }
+
+  .controls {
+    grid-row: 3;
+  }
+
+  .btn {
+    min-width: 140px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step,
+  .btn,
+  .arrow {
+    transition: none;
+  }
+}

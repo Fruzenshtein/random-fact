@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="Вгадай зображення: пікселізоване фото поступово стає чіткішим">
+  <title>Filter Image</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%236366f1%27/%3E%3Crect x=%2732%27 width=%2732%27 height=%2732%27 fill=%27%2338bdf8%27/%3E%3Crect y=%2732%27 width=%2732%27 height=%2732%27 fill=%27%23f59e0b%27/%3E%3Crect x=%2732%27 y=%2732%27 width=%2732%27 height=%2732%27 fill=%27%23e2e8f0%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <button class="arrow arrow-prev" id="prev" type="button" aria-label="Попереднє зображення">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+
+    <section class="stage" id="stage">
+      <canvas class="picture" id="canvas" width="1" height="1"></canvas>
+      <p class="status" id="status" hidden></p>
+    </section>
+
+    <button class="arrow arrow-next" id="next" type="button" aria-label="Наступне зображення">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+
+    <footer class="controls">
+      <div class="steps" id="steps" aria-label="Кроки покращення якості">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-primary" id="enhance" type="button">Enhance quality</button>
+        <button class="btn" id="reveal" type="button">Reveal</button>
+      </div>
+      <p class="counter" id="counter"></p>
+    </footer>
+  </main>
+
+  <script src="images.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
