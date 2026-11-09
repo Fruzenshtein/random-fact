@@ -1,7 +1,19 @@
 window.IMAGES = [
-  "images/img_001.jpeg",
-  "images/img_002.jpeg",
+  "images/img_001.png",
+  "images/img_002.png",
   "images/img_003.png",
-  "images/img_004.jpg",
-  "images/img_005.jpg"
+  "images/img_004.png",
+  "images/img_005.png",
+  "images/img_006.png",
+  "images/img_007.png",
+  "images/img_008.png",
+  "images/img_009.png",
+  "images/img_010.png",
+  "images/img_011.png",
+  "images/img_012.png",
+  "images/img_013.png",
+  "images/img_014.png",
+  "images/img_015.png",
+  "images/img_016.png",
+  "images/img_017.png"
 ];
