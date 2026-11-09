@@ -14,8 +14,14 @@
 </head>
 <body>
   <div class="bg" aria-hidden="true">
-    <span class="stripe stripe-blue"></span>
-    <span class="stripe stripe-yellow"></span>
+    <div class="sea">
+      <svg class="wave wave-back" viewBox="0 0 2880 600" preserveAspectRatio="none">
+        <path d="M0,70 C240,110 480,30 720,70 C960,110 1200,30 1440,70 C1680,110 1920,30 2160,70 C2400,110 2640,30 2880,70 L2880,600 L0,600 Z"/>
+      </svg>
+      <svg class="wave wave-front" viewBox="0 0 2880 600" preserveAspectRatio="none">
+        <path d="M0,60 C240,20 480,100 720,60 C960,20 1200,100 1440,60 C1680,20 1920,100 2160,60 C2400,20 2640,100 2880,60 L2880,600 L0,600 Z"/>
+      </svg>
+    </div>
   </div>
 
   <main class="screen" id="stage">

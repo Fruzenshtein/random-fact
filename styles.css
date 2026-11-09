@@ -36,7 +36,7 @@ body {
   inset: 0;
   z-index: 0;
   overflow: hidden;
-  background: var(--blue);
+  background: linear-gradient(180deg, var(--blue-light) 0%, var(--blue) 55%);
 }
 
 .bg::after {
@@ -46,34 +46,49 @@ body {
   background: radial-gradient(90% 70% at 50% 50%, rgba(4, 18, 54, 0.38) 0%, rgba(4, 18, 54, 0) 100%);
 }
 
-.stripe {
+.sea {
   position: absolute;
-  left: -12%;
-  right: -12%;
-  filter: blur(42px);
+  top: calc(50% - 60px);
+  bottom: -12vh;
+  left: 0;
+  right: 0;
+  animation: bob 7s ease-in-out infinite alternate;
+}
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  filter: blur(22px);
   will-change: transform;
 }
 
-.stripe-blue {
-  top: -25%;
-  height: 77%;
-  background: linear-gradient(180deg, var(--blue-light) 0%, var(--blue) 100%);
-  animation: breathe-blue 22s ease-in-out infinite alternate;
+.wave-back {
+  fill: var(--gold);
+  opacity: 0.8;
+  animation: roll-right 24s linear infinite;
 }
 
-.stripe-yellow {
-  top: 50%;
-  height: 75%;
-  background: linear-gradient(180deg, var(--yellow) 0%, var(--gold) 100%);
-  animation: breathe-yellow 26s ease-in-out infinite alternate;
+.wave-front {
+  fill: var(--yellow);
+  animation: roll-left 16s linear infinite;
 }
 
-@keyframes breathe-blue {
-  to { transform: translateY(3%) scaleX(1.04); }
+@keyframes roll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
-@keyframes breathe-yellow {
-  to { transform: translateY(-3%) scaleX(1.04); }
+@keyframes roll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes bob {
+  from { transform: translateY(-8px); }
+  to { transform: translateY(8px); }
 }
 
 .screen {
@@ -124,7 +139,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .stripe {
+  .sea,
+  .wave {
     animation: none;
   }
 
