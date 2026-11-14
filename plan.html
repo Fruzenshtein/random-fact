@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b4fb5">
+  <meta name="description" content="План декади інформатики">
+  <title>План декади</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2732%27 rx=%270%27 fill=%27%230057b7%27/%3E%3Crect y=%2732%27 width=%2764%27 height=%2732%27 fill=%27%23ffd500%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="plan.css">
+</head>
+<body class="plan-page">
+  <div class="bg" aria-hidden="true">
+    <div class="sea">
+      <svg class="wave wave-back" viewBox="0 0 2880 600" preserveAspectRatio="none">
+        <path d="M0,70 C240,110 480,30 720,70 C960,110 1200,30 1440,70 C1680,110 1920,30 2160,70 C2400,110 2640,30 2880,70 L2880,600 L0,600 Z"/>
+      </svg>
+      <svg class="wave wave-front" viewBox="0 0 2880 600" preserveAspectRatio="none">
+        <path d="M0,60 C240,20 480,100 720,60 C960,20 1200,100 1440,60 C1680,20 1920,100 2160,60 C2400,20 2640,100 2880,60 L2880,600 L0,600 Z"/>
+      </svg>
+    </div>
+  </div>
+
+  <main class="plan">
+    <header class="plan-header">
+      <a class="back-link" href="./">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        <span>Назад</span>
+      </a>
+      <h1 class="plan-title" id="plan-title">План декади</h1>
+    </header>
+    <p class="plan-subtitle" id="plan-subtitle"></p>
+    <nav class="day-nav" id="day-nav" aria-label="Дні декади"></nav>
+    <section class="plan-days" id="plan-days"></section>
+  </main>
+
+  <script src="plan-data.js"></script>
+  <script src="plan.js"></script>
+</body>
+</html>

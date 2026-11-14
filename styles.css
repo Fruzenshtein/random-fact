@@ -95,7 +95,8 @@ body {
   position: relative;
   z-index: 1;
   display: grid;
-  place-items: center;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 20px;
   height: 100vh;
   height: 100dvh;
   padding:
@@ -105,6 +106,49 @@ body {
     calc(env(safe-area-inset-left) + var(--gutter));
   user-select: none;
   -webkit-user-select: none;
+}
+
+.stage {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  min-width: 0;
+}
+
+.plan-link {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 360px);
+  min-height: 52px;
+  padding: 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  text-shadow: 0 1px 2px rgba(3, 14, 44, 0.3);
+  box-shadow: 0 8px 30px rgba(3, 14, 44, 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: background 160ms ease, transform 120ms ease;
+}
+
+.plan-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.plan-link:active {
+  transform: scale(0.97);
+}
+
+.plan-link:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 
 .fact {
@@ -134,7 +178,16 @@ body {
 @media (min-width: 768px) {
   :root {
     --gutter: 8vw;
-    --gutter-y: 8vh;
+    --gutter-y: 6vh;
+  }
+
+  .screen {
+    gap: 28px;
+  }
+
+  .plan-link {
+    width: auto;
+    min-width: 240px;
   }
 }
 
@@ -144,7 +197,8 @@ body {
     animation: none;
   }
 
-  .fact {
+  .fact,
+  .plan-link {
     transition: none;
   }
 }
